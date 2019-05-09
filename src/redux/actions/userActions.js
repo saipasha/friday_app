@@ -15,7 +15,7 @@ export const FETCH_USERS_LIST = "FETCH_USERS_LIST"
 export const FETCH_USERS_LIST_SUCCESS = "FETCH_USERS_LIST_SUCCESS"
 export const FETCH_USERS_LIST_ERROR = "FETCH_USERS_LIST_ERROR"
 
-//2.-Actions
+//2.-Action creators
 
 // Mortys
 
@@ -65,7 +65,7 @@ function setUserDataSuccess(user) {
 }
 
 
-//3.-Actions creators thunks == thunks are created to wait for the server's response and then dispatches to the reducer.
+//3.- Thunks == thunks are created to wait for the server's response and then dispatches to the reducer.
 
 // Mortys
 

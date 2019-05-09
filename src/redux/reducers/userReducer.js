@@ -5,8 +5,9 @@ import {
   SET_USER_DATA_SUCCESS,
   FETCH_USERS_LIST_SUCCESS,
   FETCH_USERS_LIST_ERROR,
-} from "../actions/userActions";
-import { start } from "pretty-error";
+} from "../actions/userActions"
+
+import { start } from "pretty-error"
 
 function current(state={}, action){
   switch(action.type) {
