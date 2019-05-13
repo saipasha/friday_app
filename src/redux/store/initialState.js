@@ -1,13 +1,17 @@
 export default {
   characters: {
+    totalpages: 0,
     error: false,
     fetching: false,
     fetched: 0,
     prev: '',
     next: "https://rickandmortyapi.com/api/character/",
-    count: 0,
+    count: 1,
     currentPage: 1,
-    chars: {}
+    chars: {},
+    pages: {
+      page1: []
+    }
   },
   users: {
     current: {

@@ -4,7 +4,28 @@ import {
   GET_CHARACTERS_BEGIN,
   GET_CHARACTERS_SUCCESS,
   GET_CHARACTERS_ERROR,
+  CHANGE_CURRENT_PAGE
 } from "../actions/charsActions"
+
+function totalPages(state=0, action) {
+  switch(action.type) {
+    case GET_CHARACTERS_SUCCESS:
+      return action.payload.pages
+    default:
+      return state
+  }
+}
+
+// Extra reducer for pagination. Pages are replacing existing ones.
+function pages(state={}, action){
+  switch(action.type) {
+    case GET_CHARACTERS_SUCCESS:
+      state[`page${action.payload.currentPage}`] = action.payload.chars.map(c => c.id)
+      return {...state}
+    default:
+      return state
+  }
+}
 
 function chars(state={}, action){
   switch(action.type) {
@@ -74,13 +95,28 @@ function count(state=0, action){
   }
 }
 
-function currentPage(state=0, action){
+function currentPage(state=1, action){
   switch(action.type) {
     case GET_CHARACTERS_SUCCESS:
       return action.payload.currentPage
+    case CHANGE_CURRENT_PAGE:
+      return action.payload
     default:
       return state
   }
 }
 
-export default combineReducers({ chars, error, fetching, fetched, prev, next, count, currentPage });
+export default combineReducers({ 
+
+  chars, 
+  error, 
+  fetching, 
+  fetched, 
+  prev, 
+  next, 
+  count, 
+  currentPage, 
+  pages, 
+  totalPages 
+  
+})

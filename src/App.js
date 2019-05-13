@@ -6,6 +6,7 @@ import Profile from "./components/Profile";
 import Users from './components/Users'
 import { Route, Redirect } from 'react-router-dom'
 import CharacterList from "./components/CharacterList";
+import Paginated from "./components/Paginated";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/profile' component={Profile} />
         <Route path='/users' component={Users} />
         <Route path='/characters' component={CharacterList} />
+        <Route path='/paginated' component={Paginated} />
       </header>
     </div>
   );
